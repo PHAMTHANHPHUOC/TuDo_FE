@@ -1,6 +1,6 @@
-import { createApp } from 'vue'
+import { createApp } from 'vue-router'
 import App from './App.vue'
-import router from './router/index.js'
+import router from './router'
 // import Default from './Layout/Wrapper/MasterRocker.vue'
 // import Auth from './Layout/Wrapper/auth.vue'
 import KhachHang from './Layout/Wrapper/MasterKhachHang.vue'
