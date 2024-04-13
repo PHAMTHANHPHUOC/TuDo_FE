@@ -23,11 +23,20 @@
                 </li>             
                
                 <li class="nav-item">
-                    <router-link to="/admin/danh-sach-tui">
-                        <a class="nav-link" href="/admin/danh-sach-tui">
+                    <router-link to="/admin/danh-sach-tu">
+                        <a class="nav-link" href="/admin/danh-sach-tu">
                             <div class="parent-icon"><i class="fa-solid fa-weight-scale"></i>
                             </div>
                             <div class="menu-title">Danh Sach Tủ</div>
+                        </a>
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/admin/danh-sach-khach-hang">
+                        <a class="nav-link" href="/admin/danh-sach-khach-hang">
+                            <div class="parent-icon"><i class="fa-solid fa-weight-scale"></i>
+                            </div>
+                            <div class="menu-title">Danh Sach Khách Hàng</div>
                         </a>
                     </router-link>
                 </li>

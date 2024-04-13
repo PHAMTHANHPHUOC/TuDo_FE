@@ -6,7 +6,7 @@
                     <h3>Danh Mục Sản Phẩm</h3>
                 </div>
                 <div class="col-lg-1">
-                    <button v-on:click="Object.assign(create_tu,v)" class="btn btn-outline-info  text-end" data-bs-toggle="modal"
+                    <button v-on:click="Object.assign(create_tu)" class="btn btn-outline-info  text-end" data-bs-toggle="modal"
                         data-bs-target="#ThemTuDo">Thêm Tủ Mới</button>
 
                 </div>
@@ -37,8 +37,8 @@
                                 <td class=" text-center">{{ v.pin_active }}</td>
                                 <td class=" text-center">
                                   
-                                    <button v-if="v.has_active == 0" class="btn btn-primary">Chưa Xác Nhận</button>
-                                    <button v-else class="btn btn-danger">Đã Xác Nhận </button>
+                                    <button v-if="v.has_active == v.pin_active" class="btn btn-primary">Đã Xác Nhận</button>
+                                    <button v-else class="btn btn-danger"> Chưa Xác Nhận</button>
                                 </td>
                                 <td class="mt-2 text-center">
                                     <button v-if="v.is_active == 0" class="btn btn-primary" style="width: 250px;">Tủ
@@ -74,6 +74,8 @@
                     <input v-model="create_tu.gia_ban" type="text" class="form-control " placeholder="">
                     <label for="">Password Chuyển Khoản</label>
                     <input v-model="create_tu.pin_active" type="text" class="form-control " placeholder="">
+                    <label for="">Trạng Thái</label>
+                    <input v-model="create_tu.has_active" type="text" class="form-control " placeholder="">
                     <label>Tình Trạng</label>
                         <select v-model="create_tu.is_active" class="form-control mt-1">
                             <option value="1">Đã Được Sử Dụng</option>

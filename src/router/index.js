@@ -2,17 +2,32 @@ import { createRouter, createWebHistory } from "vue-router"; // cài vue-router:
 import kiemTraDaiLy from "./kiemTraDaiLy";
 // import kiemTranNhanVien from "./kiemTranNhanVien";
 import kiemTraKhachHang from "./kiemTraKhachHang";
+// import KiemTrAdmin from "./kiemTraAdmin";
 const routes = [
      
+    
     {
         path : '/admin/danh-sach-tu',
         component: ()=>import('../components/WebTuDo/Admin/DanhSachTu/index.vue'),
         meta: {layout : 'adm'},
+       
     },
-
-
-
-
+    {
+        path : '/admin/dang-ky',
+        component: ()=>import('../components/WebTuDo/Admin/DangKy/index.vue'),
+        meta: {layout : 'auth'},
+        
+    },
+    {
+        path : '/admin/dang-nhap',
+        component: ()=>import('../components/WebTuDo/Admin/DangNhap/index.vue'),
+        meta: {layout : 'auth'},
+    },
+    {
+        path : '/admin/danh-sach-khach-hang',
+        component: ()=>import('../components/WebTuDo/Admin/DanhSachKhachHang/index.vue'),
+        meta: {layout : 'adm'},
+    },
 
 
     

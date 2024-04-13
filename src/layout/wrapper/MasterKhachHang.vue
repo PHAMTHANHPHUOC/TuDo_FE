@@ -21,7 +21,7 @@ import '../../assets/plugins/metismenu/js/metisMenu.min.js';
 import '../../assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js';
 import '../../assets/js/index.js';
 import '../../assets/js/app.js';
-export default MasterKhachHang = {
+export default {
     name            :   'app',
     components      :   {
         TopKhachHang, MenuKhachHang, Footer
