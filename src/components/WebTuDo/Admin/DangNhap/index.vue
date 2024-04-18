@@ -13,6 +13,9 @@
                                 <router-link to="/khach-hang/dang-ky">
                                     <a href="/khach-hang/dang-ky">Đăng Ký</a>
                                 </router-link>
+                                <router-link to="/khach-hang/quen-mat-khau">
+                                    <a href="/khach-hang/quen-mat-khau">quên Mật Khẩu</a>
+                                </router-link>
                             </p>
                         </div>
                         <div class="login-separater text-center mb-4">

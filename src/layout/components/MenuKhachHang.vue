@@ -4,13 +4,11 @@
             <div>
                 <img src="../../assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
             </div>
-            <div>
-                <h4 class="logo-text">Rukada</h4>
-            </div>
+            
             <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
             </div>
         </div>
-        <nav class="navbar navbar-expand-xl w-100">
+        <nav class="navbar navbar-expand-xl w-100"  >
             <ul class=" navbar-nav justify-content-start flex-grow-1 gap-1">
                              
                
@@ -19,7 +17,16 @@
                         <a class="nav-link" href="/">
                             <div class="parent-icon"><i class="fa-solid fa-box"></i>
                             </div>
-                            <div class="menu-title">Tủ Đồ</div>
+                            <div class="menu-title">Trang Chủ</div>
+                        </a>
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/khach-hang/nap-tien">
+                        <a class="nav-link" href="/khach-hang/nap-tien">
+                            <div class="parent-icon"><i class="fa-solid fa-box"></i>
+                            </div>
+                            <div class="menu-title">Thông Tin Thanh Toán</div>
                         </a>
                     </router-link>
                 </li>

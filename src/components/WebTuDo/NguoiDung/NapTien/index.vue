@@ -1,0 +1,190 @@
+<template>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnO0uhwiK1yDASJ6SkO3SLFNU3dtIb4NMiBA&s"
+                            alt="Quản trị viên" class="rounded-circle p-1 bg-primary" width="110">
+                        <div class="mt-3">
+                            <h4>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">{{ profile.ho_va_ten }}</font>
+                                </font>
+
+                            </h4>
+                            <button v-on:click="muaHang(), Object.assign(Thong_Tin_ck)" class="btn btn-outline-info "
+                                data-bs-toggle="modal" data-bs-target="#exampleExtraLargeModal">Nạp Tiền Vào Ví Điện
+                                Tử</button>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-globe me-2 icon-inline">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path
+                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                    </path>
+                                </svg>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Trang mạng</font>
+                                </font>
+                            </h6>
+                            <span class="text-secondary">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">https://codevent.com</font>
+                                </font>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-github me-2 icon-inline">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
+                                </svg>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Github</font>
+                                </font>
+                            </h6>
+                            <span class="text-secondary">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">PHAM THANH PHUOC</font>
+                                </font>
+                            </span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="card" style="height: 360px;">
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Họ và tên</font>
+                                </font>
+                            </h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input v-model="profile.ho_va_ten" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">E-mail</font>
+                                </font>
+                            </h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" v-model="profile.email" class="form-control ">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Điện thoại</font>
+                                </font>
+                            </h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input v-model="profile.so_dien_thoai" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="exampleExtraLargeModal" tabindex="-1" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title">Xác Nhận Thanh Toán</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mt-2"><label for="">
+                        </label>
+                        <img v-bind:src="Thong_Tin_ck.link_qr_code" alt="">
+                        <h5> {{ Thong_Tin_ck.ten_nguoi_nhan }}</h5>
+                        <h5>{{ Thong_Tin_ck.so_dien_thoai_nguoi_nhan }}</h5>
+                        <h3 class="text-danger ">*Chú Ý: Chuyển đúng cú pháp, sai nội dung bị chuyển qua ID khác Chúng
+                            Tôi không chịu trách nhiệm</h3>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-primary">Xác Nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+<script>
+
+import baseRequest from '../../../../core/baseRequest';
+import axios from 'axios';
+import { createToaster } from "@meforma/vue-toaster";
+const toaster = createToaster({ position: "top-right" });
+export default {
+    data() {
+        return {
+            profile: {},
+            Thong_Tin_ck: {}
+
+        }
+    },
+    mounted() {
+        this.loadDataKhachHang();
+        this.loadDataCk();
+
+    },
+    methods: {
+        loadDataKhachHang() {
+            baseRequest
+                .get('khach-hang/thong-tin')
+                .then((res) => {
+                    this.profile = res.data.data;
+                })
+        },
+        loadDataCk() {
+            axios
+                .get('http://127.0.0.1:8000/api/thong-tin-ck/data')
+                .then((res) => {
+                    this.Thong_Tin_ck = res.data.data;
+                    console.log(this.Thong_Tin_ck);
+                })
+        },
+        muaHang() {
+            baseRequest
+                .post('khach-hang/nap-tien-tk')
+                .then((res) => {
+                    if (res.data.status) {
+                        toaster.success('Thông báo<br>' + res.data.message);
+                        // console.log(res.data.data);
+                        this.loadDataCk();
+                    } else {
+                        toaster.error('Thông báo<br>' + res.data.message);
+                    }
+                });
+        }
+    },
+
+}
+</script>
+<style></style>

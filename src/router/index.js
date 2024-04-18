@@ -36,7 +36,13 @@ const routes = [
         path : '/',
         component: ()=>import('../components/WebTuDo/NguoiDung/Home/index.vue'),
         meta: {layout : 'kh'},
-        // beforeEnter: kiemTraKhachHang
+        beforeEnter: kiemTraKhachHang
+    },
+    {
+        path : '/khach-hang/nap-tien',
+        component: ()=>import('../components/WebTuDo/NguoiDung/NapTien/index.vue'),
+        meta: {layout : 'kh'},
+        beforeEnter: kiemTraKhachHang
     },
     
     {
@@ -66,6 +72,7 @@ const routes = [
         component: ()=>import('../components/WebTuDo/NguoiDung/ResetMatKhau/index.vue'),
         meta : {layout : 'kh'},
         props: true
+
     },
     {
         path : '/khach-hang/kich-hoat/:id_can_kich_hoat',
