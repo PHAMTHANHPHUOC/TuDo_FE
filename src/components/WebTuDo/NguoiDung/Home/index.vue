@@ -59,14 +59,14 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Danh Mục</th>
-                                                        <th>Thông Tin</th>
-                                                        <th>Tổng Tiền Thanh Toán</th>
+                                                        <th>Tổng Tiền Trong Tài Khoản</th>
+                                                        <th>Tổng Tiền Cần Thanh Toán</th>
 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Thuê Tủ</td>
+                                                        <td><b>Thuê Tủ</b></td>
                                                         <td><input v-model="profile.tong_tien" class="form-control"
                                                                 type="text"></td>
                                                         <td><input v-model="create_thanh_toan.gia_ban" class="form-control"
@@ -84,7 +84,7 @@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                    <button v-on:click="thanhToan()" type="button" class="btn btn-primary">Xác
+                                    <button v-on:click="thanhToan()" data-bs-dismiss="modal"  type="button" class="btn btn-primary">Xác
                                         Nhận</button>
                                 </div>
                             </div>

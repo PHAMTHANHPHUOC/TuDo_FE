@@ -92,13 +92,6 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <router-link to="/khach-hang/profile">
-                                <a class="dropdown-item" href="javascript:;">
-                                    <i class="bx bx-user"></i><span>Profile</span>
-                                </a>
-                            </router-link>
-                        </li>
-                        <li>
                             <div class="dropdown-divider mb-0"></div>
                         </li>
                         <li><a v-on:click="dangXuat()" class="dropdown-item" href="javascript:;"><i
@@ -127,8 +120,8 @@ export default {
     methods: {
 
         dangXuat(){
-            Axios
-                .get('http://127.0.0.1:8000/api/khach-hang/dang-xuat')
+            baseRequest
+                .get('khach-hang/dang-xuat')
                 .then((res) => {
                     if(res.data.status) {
                         toaster.success(res.data.message);
@@ -141,8 +134,8 @@ export default {
 
         },
         dangXuatALL(){
-            Axios
-                .get('http://127.0.0.1:8000/api/khach-hang/dang-xuat-all')
+            baseRequest
+                .get('khach-hang/dang-xuat-all')
                 .then((res) => {
                     if(res.data.status) {
                         toaster.success(res.data.message);

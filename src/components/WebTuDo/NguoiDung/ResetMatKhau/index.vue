@@ -8,7 +8,7 @@
 								<div class="card-body">
 									<div class="p-5">
 										<div class="text-center">
-											<img src="https://dzfullstack.com/assets/images/logo-img.png" width="180" alt="">
+											<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfEU2rXvs5sNGYzb9RYhxYVXnc8G3xX9fBbw&s" width="180" alt="">
 										</div>
 										<h4 class="mt-5 font-weight-bold">Thay Đổi Mật Khẩu</h4>
 										<p class="text-muted">Nhập lại mật khẩu mới để thay đổi mật khẩu</p>

@@ -25,7 +25,7 @@
                                     <td class="text-center">{{ value.so_dien_thoai }}</td>
                                     <td class="text-center">{{ formatToVND(value.tong_tien) }}</td>
                                     <td class="text-center">
-                                        <button v-if="value.is_block" class="btn btn-success me-1" v-on:click="actionDoiTrangThaiTaiKhoan(value)">
+                                        <button v-if="value.is_block == 0" class="btn btn-success me-1" v-on:click="actionDoiTrangThaiTaiKhoan(value)">
                                             Hoạt Động
                                         </button>
                                         <button v-else class="btn btn-danger me-1" v-on:click="actionDoiTrangThaiTaiKhoan(value)">

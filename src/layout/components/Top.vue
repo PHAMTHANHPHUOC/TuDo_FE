@@ -91,13 +91,7 @@
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li>
-                            <router-link to="/khach-hang/profile">
-                                <a class="dropdown-item" href="javascript:;">
-                                    <i class="bx bx-user"></i><span>Profile</span>
-                                </a>
-                            </router-link>
-                        </li>
+                       
                         <li>
                             <div class="dropdown-divider mb-0"></div>
                         </li>
