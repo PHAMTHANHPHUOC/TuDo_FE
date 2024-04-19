@@ -15,7 +15,7 @@
                 <li class="nav-item">
                     <router-link to="/">
                         <a class="nav-link" href="/">
-                            <div class="parent-icon"><i class="fa-solid fa-box"></i>
+                            <div class="parent-icon"><i class="fa-solid fa-house"></i>
                             </div>
                             <div class="menu-title">Trang Chủ</div>
                         </a>
@@ -24,7 +24,7 @@
                 <li class="nav-item">
                     <router-link to="/khach-hang/nap-tien">
                         <a class="nav-link" href="/khach-hang/nap-tien">
-                            <div class="parent-icon"><i class="fa-solid fa-box"></i>
+                            <div class="parent-icon"><i class="fa-solid fa-money-bill"></i>
                             </div>
                             <div class="menu-title">Thông Tin Thanh Toán</div>
                         </a>
@@ -39,6 +39,44 @@ export default {
 
 }
 </script>
-<style >
-    
-</style> 
+<style scoped>
+.nav-container {
+    background-color: #ced5dd; /* Màu nền của menu */
+    color: #fff; /* Màu chữ của menu */
+    padding: 10px 20px; /* Khoảng cách padding của menu */
+}
+
+.logo-icon {
+    width: 50px; /* Kích thước của logo */
+    height: auto;
+}
+
+.toggle-icon {
+    cursor: pointer; /* Con trỏ khi hover vào biểu tượng toggle */
+    color: #fff; /* Màu chữ của biểu tượng toggle */
+}
+
+.navbar-nav {
+    list-style: none; /* Loại bỏ dấu chấm của danh sách menu */
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.nav-item {
+    margin-right: 20px; /* Khoảng cách giữa các mục menu */
+}
+
+.nav-link {
+    color: #fff; /* Màu chữ của các mục menu */
+    text-decoration: none; /* Loại bỏ đường gạch chân của các mục menu */
+}
+
+.parent-icon {
+    margin-right: 10px; /* Khoảng cách giữa biểu tượng và tiêu đề của mục menu */
+}
+
+.menu-title {
+    font-weight: bold; /* Đậm chữ của tiêu đề của mục menu */
+}
+</style>

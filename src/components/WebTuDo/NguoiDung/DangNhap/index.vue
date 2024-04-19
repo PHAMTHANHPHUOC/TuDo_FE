@@ -13,6 +13,7 @@
                                 <router-link to="/khach-hang/dang-ky">
                                     <a href="/khach-hang/dang-ky">Đăng Ký</a>
                                 </router-link>
+                               
                             </p>
                         </div>
                         <div class="login-separater text-center mb-4">
@@ -36,6 +37,11 @@
                                     <div class="d-grid">
                                         <button type="button" v-on:click="actionDangNhap()" class="btn btn-primary"><i
                                                 class="bx bx-user"></i>Đăng Nhập</button>
+                                                <span class="m-2">
+                                    <router-link to="/khach-hang/quen-mat-khau">
+                                    <a href="/khach-hang/quen-mat-khau">Quên Mật Khẩu</a>
+                                </router-link>
+                                </span>
                                     </div>
                                 </div>
                             </form>

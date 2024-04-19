@@ -16,11 +16,25 @@
                             <button v-on:click="muaHang(), Object.assign(Thong_Tin_ck)" class="btn btn-outline-info "
                                 data-bs-toggle="modal" data-bs-target="#exampleExtraLargeModal">Nạp Tiền Vào Ví Điện
                                 Tử</button>
+                                
                         </div>
                     </div>
                     <hr class="my-4">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0"> <i class="fa-solid fa-lock m-1"></i>
+                                
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">   Đổi Mật Khẩu</font>
+                                </font>
+                            </h6>
+                            <span class="text-secondary">
+                                <font style="vertical-align: inherit;">
+                                    <button v-on:click="Object.assign(edit_khach_hang, value)" data-bs-toggle="modal" data-bs-target="#doiMatKhauKhachHangModal" class="btn btn-outline-info "><i class="fa-solid fa-right-from-bracket"></i></button>
+                                </font>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap mt-3">
                             <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
@@ -31,42 +45,25 @@
                                         d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
                                     </path>
                                 </svg>
+                                
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">Trang mạng</font>
                                 </font>
                             </h6>
                             <span class="text-secondary">
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">https://codevent.com</font>
+                                    <font style="vertical-align: inherit;">https://webtudo.com</font>
                                 </font>
                             </span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                            <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="feather feather-github me-2 icon-inline">
-                                    <path
-                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                    </path>
-                                </svg>
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Github</font>
-                                </font>
-                            </h6>
-                            <span class="text-secondary">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">PHAM THANH PHUOC</font>
-                                </font>
-                            </span>
-                        </li>
+                       
 
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col-lg-8">
-            <div class="card" style="height: 360px;">
+            <div class="card" style="height: 395px;">
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col-sm-3">
@@ -113,9 +110,10 @@
                             </h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <input v-model="profile.tong_tien " type="text" class="form-control">
+                            <input v-model="profile.tong_tien" type="text" class="form-control">
                         </div>
                     </div>
+                    
                 </div>
             </div>
 
@@ -144,6 +142,26 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="doiMatKhauKhachHangModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Đổi Mật Khẩu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 mb-2">
+                        <label class="form-label">Mật Khẩu Mới</label>
+                        <input v-model="new_password" type="text" class="form-control" placeholder="Nhập vào mật khẩu mới">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" v-on:click="actionDoiMatKhauTaiKhoan()">Xác Nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </template>
 <script>
@@ -156,7 +174,9 @@ export default {
     data() {
         return {
             profile: {},
-            Thong_Tin_ck: {}
+            Thong_Tin_ck: {},
+            edit_khach_hang     : {},
+            new_password        : ""
 
         }
     },
@@ -201,9 +221,25 @@ export default {
                         toaster.error('Thông báo<br>' + res.data.message);
                     }
                 });
+        },
+        actionDoiMatKhauTaiKhoan() {
+            var payload = {
+                'id'       : this.edit_khach_hang.id,
+                'password' : this.new_password
+            }
+            baseRequest
+                .post('admin/khach-hang/doi-mat-khau', payload)
+                .then((res) => {
+                    if(res.data.status) {
+                        toaster.success(res.data.message);
+                        this.new_password = "";
+                    } else {
+                        toaster.error(res.data.message);
+                    }
+                })
         }
     },
 
 }
 </script>
-<style></style>
+

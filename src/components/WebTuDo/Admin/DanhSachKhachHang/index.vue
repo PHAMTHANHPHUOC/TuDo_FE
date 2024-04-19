@@ -237,4 +237,58 @@ export default {
     },
 }
 </script>
-<style></style>
+<style scoped>
+/* CSS cho card */
+.card {
+    margin-bottom: 20px; /* Khoảng cách dưới của card */
+    border: 1px solid #e3e3e3; /* Đường viền của card */
+    border-radius: 10px; /* Độ cong góc của card */
+}
+
+.card-body {
+    padding: 20px; /* Khoảng cách padding bên trong card */
+}
+
+/* CSS cho table trong card */
+.table {
+    border-collapse: collapse; /* Loại bỏ khoảng cách giữa các ô */
+    width: 100%; /* Chiều rộng của bảng */
+}
+
+.table th,
+.table td {
+    padding: 10px; /* Khoảng cách padding bên trong ô */
+    border: 1px solid #dee2e6; /* Đường viền của ô */
+}
+
+.table th {
+    background-color: #f5f5f5; /* Màu nền của ô tiêu đề */
+}
+
+/* CSS cho modal */
+.modal-content {
+    border-radius: 10px; /* Độ cong góc của modal */
+}
+
+.modal-header {
+    border-bottom: none; /* Loại bỏ đường viền dưới của header modal */
+}
+
+.modal-footer {
+    border-top: none; /* Loại bỏ đường viền trên của footer modal */
+}
+
+/* CSS cho dropdown menu */
+.dropdown-menu {
+    border-radius: 5px; /* Độ cong góc của dropdown menu */
+}
+
+.dropdown-item {
+    padding: 10px 20px; /* Khoảng cách padding bên trong mỗi item của dropdown menu */
+}
+
+/* CSS cho alert */
+.alert {
+    border-radius: 10px; /* Độ cong góc của alert */
+}
+</style>

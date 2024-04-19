@@ -238,4 +238,89 @@ export default {
 
 }
 </script>
-<style></style>
+<style scoped>
+/* CSS cho card */
+.card {
+    margin-bottom: 20px; /* Khoảng cách dưới của card */
+    border: 1px solid #e3e3e3; /* Đường viền của card */
+    border-radius: 10px; /* Độ cong góc của card */
+}
+
+.card-header {
+    background-color: #f5f5f5; /* Màu nền của card header */
+    padding: 10px 20px; /* Khoảng cách padding bên trong card header */
+    border-bottom: 1px solid #dee2e6; /* Đường viền dưới của card header */
+    border-radius: 10px 10px 0 0; /* Độ cong góc của card header */
+}
+
+.card-header h3 {
+    margin-bottom: 0; /* Loại bỏ khoảng cách dưới của tiêu đề */
+}
+
+/* CSS cho table */
+.table {
+    width: 100%; /* Chiều rộng của bảng */
+}
+
+.table th, .table td {
+    padding: 8px; /* Khoảng cách padding bên trong ô */
+    text-align: center; /* Căn giữa nội dung của ô */
+}
+
+.table th {
+    background-color: #f5f5f5; /* Màu nền của ô tiêu đề */
+    font-weight: bold; /* Đậm chữ của tiêu đề */
+}
+
+/* CSS cho modal */
+.modal-content {
+    border-radius: 10px; /* Độ cong góc của modal content */
+}
+
+.modal-header {
+    border-bottom: none; /* Loại bỏ đường viền dưới của header modal */
+}
+
+.modal-footer {
+    border-top: none; /* Loại bỏ đường viền trên của footer modal */
+}
+
+.modal-body input[type="text"],
+.modal-body input[type="password"],
+.modal-body select {
+    width: 100%; /* Chiều rộng của input và select trong modal body */
+}
+
+/* CSS cho button */
+.btn-outline-info {
+    border-color: #17a2b8; /* Màu viền của button outline info */
+    color: #17a2b8; /* Màu chữ của button outline info */
+}
+
+.btn-outline-info:hover {
+    background-color: #17a2b8; /* Màu nền của button outline info khi hover */
+    color: #fff; /* Màu chữ của button outline info khi hover */
+}
+
+
+
+.btn-primary {
+    background-color: #007bff; /* Màu nền của button primary */
+    border-color: #007bff; /* Màu viền của button primary */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Màu nền của button primary khi hover */
+    border-color: #0056b3; /* Màu viền của button primary khi hover */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Màu nền của button danger */
+    border-color: #dc3545; /* Màu viền của button danger */
+}
+
+.btn-danger:hover {
+    background-color: #bb2d3b; /* Màu nền của button danger khi hover */
+    border-color: #bb2d3b; /* Màu viền của button danger khi hover */
+}
+</style>
