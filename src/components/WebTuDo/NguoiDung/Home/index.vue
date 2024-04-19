@@ -46,36 +46,45 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                        <h3>Thanh Toán</h3>
+                                        <h3>Xác Nhận Thanh Toán</h3>
                                     </h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
 
                                 <div class="modal-body">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <table class="table table-bordered accordion ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Danh Mục</th>
+                                                        <th>Thông Tin</th>
+                                                        <th>Tổng Tiền Thanh Toán</th>
 
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Thuê Tủ</td>
+                                                        <td><input v-model="profile.tong_tien" class="form-control"
+                                                                type="text"></td>
+                                                        <td><input v-model="create_thanh_toan.gia_ban" class="form-control"
+                                                                type="text"></td>
+                                                    </tr>
+                                                </tbody>
 
-                                    <div class="mt-2"><label for="">
-                                            <h5>Thông Tin Chuyển Khoản</h5>
-                                        </label>
-                                        <img class="img-fluid mt-2" src="../../../../../MaQRR.jpg" alt=""><br>
-                                        <h5> - Đơn vị thụ hưởng: Phạm Thanh Phước</h5>
-                                        <h5> - Ngân hàng: vietcombank</h5>
-                                        <h5> - Số Tài Khoản: 1023164120</h5>
-                                        <h5> - Thành Tiền: {{ formatToVND(create_thanh_toan.gia_ban) }}</h5>
-                                        <h5> -Nội Dung Chuyển Khoản : <b class="text-danger ">{{
-                                                create_thanh_toan.pin_active }}</b></h5>
-                                        <input v-model="create_thanh_toan.has_active" type="text" class="form-control"
-                                            placeholder="Vui Lòng Nhập Lại Nội Dung Chuyển Khoản Tại Đây">
-                                        <h3 class="text-danger ">LƯU Ý: Hãy Điền Đúng Nội Dung Chuyển Khoản Trên</h3>
-
-
+                                            </table>
+                                        </div>
                                     </div>
+
+
+
                                 </div>
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                    <button v-on:click="createThanhToan()" type="button" class="btn btn-primary">Xác
+                                    <button v-on:click="thanhToan()" type="button" class="btn btn-primary">Xác
                                         Nhận</button>
                                 </div>
                             </div>
@@ -96,6 +105,7 @@ export default {
         return {
             list_tu: [],
             pin: {},
+            profile: {},
             create_thanh_toan: {},
 
 
@@ -103,43 +113,45 @@ export default {
     },
     mounted() {
         this.getDataTu();
+        this.getProfile();
     },
     methods: {
         formatToVND(number) {
             number = parseInt(number);
             return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
         },
+        getProfile() {
+            baseRequest
+                .get('khach-hang/thong-tin')
+                .then((res) => {
+                    this.profile = res.data.data;
+
+                })
+        },
 
         getDataTu() {
-            axios
-                .get('http://127.0.0.1:8000/api/tu-do/data')
+            baseRequest
+                .get('tu-do/data')
                 .then((res) => {
                     this.list_tu = res.data.data;
                 })
         },
 
-        createThanhToan() {
-            axios
-                .post('http://127.0.0.1:8000/api/tu-do/key-chuyen-khoan', this.create_thanh_toan)
+        
+        thanhToan() {
+            baseRequest
+                .post('tu-do/thanh-toan', this.create_thanh_toan)
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success(res.data.message);
                         this.getDataTu();
-
-
+                        this.getProfile();
                     } else {
                         toaster.error(res.data.message);
                     }
                 })
-        },
-        // actionThueTu(){
-        //     baseRequest
-        //         .post('http://127.0.0.1:8000/api/tu-do/pin', this.pin)
-        //         .then((res) => {
-        //             selec
+        }
 
-        //         })
-        // },
 
     }
 }
