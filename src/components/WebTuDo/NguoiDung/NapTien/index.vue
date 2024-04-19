@@ -104,6 +104,18 @@
                             <input v-model="profile.so_dien_thoai" type="text" class="form-control">
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Tổng Tiền Trong Tài Khoản</font>
+                                </font>
+                            </h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input v-model="profile.tong_tien " type="text" class="form-control">
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -117,8 +129,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mt-2"><label for="">
-                        </label>
+                    <div class="mt-2 text-center ">
                         <img v-bind:src="Thong_Tin_ck.link_qr_code" alt="">
                         <h5> {{ Thong_Tin_ck.ten_nguoi_nhan }}</h5>
                         <h5>{{ Thong_Tin_ck.so_dien_thoai_nguoi_nhan }}</h5>
@@ -155,6 +166,10 @@ export default {
 
     },
     methods: {
+        formatToVND(number) {
+            number = parseInt(number);
+            return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+        },
         loadDataKhachHang() {
             baseRequest
                 .get('khach-hang/thong-tin')
@@ -164,10 +179,14 @@ export default {
         },
         loadDataCk() {
             axios
-                .get('http://127.0.0.1:8000/api/thong-tin-ck/data')
+                .get('http://127.0.0.1:8000/api/thong-tin-ck/data', {
+                    headers : {
+                        Authorization: 'Bearer ' + window.localStorage.getItem('chia_khoa_16')
+                    }
+                })
                 .then((res) => {
+                    
                     this.Thong_Tin_ck = res.data.data;
-                    console.log(this.Thong_Tin_ck);
                 })
         },
         muaHang() {
