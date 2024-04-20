@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div class="topbar d-flex align-items-center">
+        <div style="background-color: #b9c1ca;" class="topbar d-flex align-items-center">
             <nav class="navbar navbar-expand">
                 <router-link to="/">
                     <div class="topbar-logo-header">
@@ -9,7 +9,7 @@
                         </div>
                         <div class="">
                             <router-link to="/">
-                                <h4 class="logo-text">Website Tủ Đồ</h4>
+                                <h4 style="color: black; font-weight: " class="logo-text">Website Tủ Đồ</h4>
                             </router-link>
                         </div>
                     </div>
@@ -151,57 +151,10 @@ export default {
     },
 }
 </script>
-<style scoped>
-.topbar {
-    background-color: #ced5dd; /* Màu nền của topbar */
-    color: #fff; /* Màu chữ của topbar */
-    padding: 10px 20px; /* Khoảng cách padding của topbar */
-}
-
-.topbar-logo-header {
-    display: flex; /* Hiển thị theo kiểu flexbox */
-    align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
-}
-
-.logo-icon {
-    width: 50px; /* Kích thước của logo */
-    height: auto;
-}
-
+<style>
 .logo-text {
-    margin-left: 10px; /* Khoảng cách giữa logo icon và text của logo */
-    font-size: 20px; /* Kích thước của text của logo */
-}
-.logo-text {
-    color: #000; /* Đổi màu chữ của tiêu đề sang màu đen */
-}
-.mobile-toggle-menu {
-    cursor: pointer; /* Con trỏ khi hover vào biểu tượng toggle */
-    color: #fff; /* Màu chữ của biểu tượng toggle */
-}
-
-.search-bar {
-    display: flex; /* Hiển thị theo kiểu flexbox */
-    align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
-}
-
-.search-control {
-    border-radius: 5px; /* Độ cong góc của ô tìm kiếm */
-}
-
-.alert-count {
-    position: absolute; /* Vị trí tuyệt đối */
-    top: -8px; /* Khoảng cách từ trên xuống */
-    right: -8px; /* Khoảng cách từ phải qua */
-    background-color: red; /* Màu nền */
-    color: #fff; /* Màu chữ */
-    width: 20px; /* Chiều rộng */
-    height: 20px; /* Chiều cao */
-    border-radius: 50%; /* Độ cong góc */
-    font-size: 12px; /* Kích thước chữ */
-    display: flex; /* Hiển thị theo kiểu flexbox */
-    justify-content: center; /* Căn chỉnh các phần tử theo chiều ngang */
-    align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
+    color: black; /* Thay đổi màu chữ thành màu đen */
 }
 </style>
+
 

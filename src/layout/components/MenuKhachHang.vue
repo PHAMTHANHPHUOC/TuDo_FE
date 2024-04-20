@@ -39,44 +39,56 @@ export default {
 
 }
 </script>
-<style scoped>
-.nav-container {
-    background-color: #ced5dd; /* Màu nền của menu */
-    color: #fff; /* Màu chữ của menu */
-    padding: 10px 20px; /* Khoảng cách padding của menu */
+<style>
+/* Định dạng chung cho menu */
+.nav-container.primary-menu {
+  background-color: #b9c1ca; /* Màu nền */
+  padding: 10px; /* Khoảng cách lề */
 }
 
+/* Định dạng cho logo */
 .logo-icon {
-    width: 50px; /* Kích thước của logo */
-    height: auto;
+  width: 40px; /* Kích thước */
+  height: auto; /* Đảm bảo tỉ lệ khung hình được giữ */
 }
 
+/* Định dạng cho icon toggle */
 .toggle-icon {
-    cursor: pointer; /* Con trỏ khi hover vào biểu tượng toggle */
-    color: #fff; /* Màu chữ của biểu tượng toggle */
+  cursor: pointer; /* Con trỏ khi di chuột qua */
 }
 
+/* Định dạng cho menu */
+.navbar {
+  padding: 0; /* Xóa khoảng cách lề */
+}
+
+/* Định dạng cho danh sách menu */
 .navbar-nav {
-    list-style: none; /* Loại bỏ dấu chấm của danh sách menu */
-    display: flex;
-    align-items: center;
-    padding: 0;
+  display: flex; /* Hiển thị theo chiều ngang */
+  align-items: center; /* Canh giữa các phần tử */
 }
 
+/* Định dạng cho mỗi mục menu */
 .nav-item {
-    margin-right: 20px; /* Khoảng cách giữa các mục menu */
+  list-style: none; /* Ẩn dấu chấm liệt kê */
 }
 
+/* Định dạng cho link */
 .nav-link {
-    color: #fff; /* Màu chữ của các mục menu */
-    text-decoration: none; /* Loại bỏ đường gạch chân của các mục menu */
+  text-decoration: none; /* Ẩn gạch chân */
+  color: #333; /* Màu chữ */
+  display: flex; /* Hiển thị theo chiều ngang */
+  align-items: center; /* Canh giữa các phần tử */
 }
 
+/* Định dạng cho icon và tiêu đề mục menu */
 .parent-icon {
-    margin-right: 10px; /* Khoảng cách giữa biểu tượng và tiêu đề của mục menu */
+  margin-right: 5px; /* Khoảng cách với tiêu đề */
 }
 
+/* Định dạng cho tiêu đề mục menu */
 .menu-title {
-    font-weight: bold; /* Đậm chữ của tiêu đề của mục menu */
+  font-weight: bold; /* Đậm */
 }
+
 </style>

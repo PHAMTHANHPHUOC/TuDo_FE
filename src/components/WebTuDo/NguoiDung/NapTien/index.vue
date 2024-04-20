@@ -69,11 +69,12 @@
                         <div class="col-sm-3">
                             <h6 class="mb-0">
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Họ và tên</font>
+                                    <font style="vertical-align: inherit;">Họ và tên :</font>
                                 </font>
                             </h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
+                            
                             <input v-model="profile.ho_va_ten" type="text" class="form-control">
                         </div>
                     </div>
@@ -81,7 +82,7 @@
                         <div class="col-sm-3">
                             <h6 class="mb-0">
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">E-mail</font>
+                                    <font style="vertical-align: inherit;">E-mail :</font>
                                 </font>
                             </h6>
                         </div>
@@ -93,7 +94,7 @@
                         <div class="col-sm-3">
                             <h6 class="mb-0">
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Điện thoại</font>
+                                    <font style="vertical-align: inherit;">Điện thoại :</font>
                                 </font>
                             </h6>
                         </div>
@@ -105,12 +106,12 @@
                         <div class="col-sm-3">
                             <h6 class="mb-0">
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Tổng Tiền Trong Tài Khoản</font>
+                                    <font style="vertical-align: inherit;">Tổng Tiền Trong Tài Khoản :</font>
                                 </font>
                             </h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <input v-model="profile.tong_tien" type="text" class="form-control">
+                            <div class="card accordion-flush "><h5 class="m-2">{{ formatToVND(profile.tong_tien) }}</h5></div>
                         </div>
                     </div>
                     
@@ -242,4 +243,48 @@ export default {
 
 }
 </script>
+<style>
+h4.logo-text {
+    color: black;
+    font-weight: bold;
+}
+
+h6 {
+    font-weight: bold;
+}
+.btn-outline-info {
+    border-color: #17a2b8; /* Màu biên */
+    color: #17a2b8; /* Màu chữ */
+}
+
+.btn-outline-info:hover {
+    background-color: #17a2b8; /* Màu nền khi di chuột vào */
+    color: white; /* Màu chữ khi di chuột vào */
+}
+.list-group-item {
+    border: none;
+}
+
+.list-group-item h6 {
+    margin-bottom: 0.5rem; /* Khoảng cách giữa dòng */
+}
+
+.list-group-item h6 svg {
+    vertical-align: middle; /* Canh giữa biểu tượng và chữ */
+}
+input[type="text"],
+textarea {
+    border: 1px solid #ced4da; /* Màu viền */
+    border-radius: 5px; /* Độ cong viền */
+    padding: 0.5rem; /* Khoảng cách bên trong input */
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none; /* Loại bỏ viền khi focus */
+    border-color: #17a2b8; /* Màu viền khi focus */
+}
+
+</style>
+
 

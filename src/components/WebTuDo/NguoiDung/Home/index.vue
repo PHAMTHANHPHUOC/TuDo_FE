@@ -22,84 +22,20 @@
                                             }}</h5>
                                     </div>
                                 </div>
-
                                 <button v-if="v.is_active == 0" v-on:click="Object.assign(create_thanh_toan, v)"
-                                    class="btn btn-primary form-control " data-bs-toggle="modal"
-                                    data-bs-target="#thuetudo">Thuê Tủ</button>
-                                <div v-else>
-                                    <div class="row">
-                                        <div class="col-lg-10">
-                                            <button class="btn btn-danger form-control">Tủ Đã Được Thuê</button>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <button class="form-control text-black btn btn-outline-light  "
-                                                data-bs-toggle="dropdown"><i
-                                                    class="fa-solid fa-caret-down"></i></button>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
-                                                <a class="dropdown-item"
-                                                    v-on:click="Object.assign(create_thanh_toan, v)"
-                                                    data-bs-toggle="modal" data-bs-target="#pinactive">Cập Nhật Mã
-                                                    Pin</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    class=" btn btn-primary form-control" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">Thuê Sản Phẩm</button>
+                                <button v-else class=" btn btn-danger  form-control">Tủ Đã Được Thuê</button>
 
-                                </div>
+
                             </div>
                         </div>
                     </template>
-                    <div class="modal fade" id="thuetudo" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                        <h3>Xác Nhận Thanh Toán</h3>
-                                    </h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-
-                                <div class="modal-body">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <table class="table table-bordered accordion ">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Danh Mục</th>
-                                                        <th>Tổng Tiền Trong Tài Khoản</th>
-                                                        <th>Tổng Tiền Cần Thanh Toán</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><b>Thuê Tủ</b></td>
-                                                        <td><input v-model="profile.tong_tien" class="form-control"
-                                                                type="text"></td>
-                                                        <td><input v-model="create_thanh_toan.gia_ban"
-                                                                class="form-control" type="text">
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                    <button v-on:click="thanhToan(), Object.assign(update_pin_active, v)"
-                                        data-bs-dismiss="modal" type="button" class="btn btn-primary">Xác
-                                        Nhận</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="pinactive" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="pinactive" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -117,8 +53,41 @@
                     <input v-model="create_thanh_toan.pin_active" type="text" class="form-control">
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" >Thoát</button>
+                    <button v-on:click="updatePinActive()" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xác Nhận</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Xác Nhận Thanh Toán</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered accordion ">
+                        <thead>
+                            <tr>
+                                <th>Danh Mục</th>
+                                <th>Tổng Tiền Trong Tài Khoản</th>
+                                <th>Tổng Tiền Cần Thanh Toán</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>Thuê Tủ</b></td>
+                                <td>{{ formatToVND(profile.tong_tien) }}</td>
+                                <td>{{ formatToVND(create_thanh_toan.gia_ban) }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
-                    <button v-on:click="updatePinActive()" type="button" class="btn btn-primary">Xác Nhận</button>
+                    <button v-on:click="thanhToan()" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xác
+                        Nhận</button>
                 </div>
             </div>
         </div>
@@ -131,6 +100,7 @@ import baseRequest from '../../../../core/baseRequest';
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import Toasted from 'vue-toasted';
 export default {
     data() {
         return {
@@ -139,15 +109,22 @@ export default {
             profile: {},
             create_thanh_toan: {},
             update_pin_active: {},
-
-
         }
     },
     mounted() {
         this.getDataTu();
         this.getProfile();
+        const toaster = createToaster({
+            position: "top-right",
+            timeout: 20000, // Thời gian hiển thị: 5000 miligiây (5 giây)
+            icon: {
+                iconPack: "fontawesome",
+                iconSize: "lg", // Kích thước biểu tượng lớn (lg)
+            },
+        });
     },
     methods: {
+
         formatToVND(number) {
             number = parseInt(number);
             return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
@@ -204,4 +181,103 @@ export default {
 </script>
 <style>
 
+/* Định dạng cho card header */
+.card-header {
+    background-color: #949494;
+    /* Màu nền */
+    color: rgb(255, 255, 255);
+    /* Màu chữ */
+    text-align: center;
+    /* Canh giữa nội dung */
+}
+
+/* Định dạng cho modal */
+.modal-dialog {
+    max-width: 700px;
+    /* Độ rộng tối đa của modal */
+}
+
+/* Định dạng cho modal header */
+.modal-header {
+    background-color: #ab9bb2;
+    /* Màu nền */
+    color: white;
+    /* Màu chữ */
+    text-align: center;
+    /* Canh giữa nội dung */
+}
+
+/* Định dạng cho nút Close trong modal */
+.btn-close {
+    color: white;
+    /* Màu chữ */
+}
+
+/* Định dạng cho footer của modal */
+.modal-footer {
+    justify-content: space-between;
+    /* Căn giữa các nút */
+}
+
+/* Định dạng cho table trong modal */
+.table {
+    margin-bottom: 0;
+    /* Loại bỏ khoảng cách dưới cùng của table */
+}
+
+/* Định dạng cho table head */
+.table th {
+    background-color: #060f06;
+    /* Màu nền */
+    color: white;
+    /* Màu chữ */
+    text-align: center;
+    /* Canh giữa nội dung */
+}
+
+/* Định dạng cho table body */
+.table td {
+    text-align: center;
+    /* Canh giữa nội dung */
+}
+
+/* Định dạng cho tiêu đề của table */
+.table thead th {
+    vertical-align: middle;
+    /* Canh giữa nội dung theo chiều dọc */
+}
+
+/* Định dạng cho nút trong table */
+.table button {
+    width: 100%;
+    /* Độ rộng chiều ngang */
+}
+
+/* Định dạng cho ô input trong modal */
+input[type="text"] {
+    width: 100%;
+    /* Độ rộng chiều ngang */
+    padding: 8px;
+    /* Khoảng cách giữa viền và nội dung trong input */
+    margin-bottom: 10px;
+    /* Khoảng cách giữa các input */
+    border-radius: 5px;
+    /* Bo tròn góc */
+    border: 1px solid #ccc;
+    /* Viền */
+    box-sizing: border-box;
+    /* Đảm bảo kích thước input không bị thay đổi */
+}
+
+/* Định dạng cho tiêu đề trong input */
+input[type="text"]::placeholder {
+    color: #aaa;
+    /* Màu chữ */
+}
+
+/* Định dạng cho các hàng trong table */
+.table tbody tr:nth-child(even) {
+    background-color: #b34141;
+    /* Màu nền cho các hàng chẵn */
+}
 </style>

@@ -61,12 +61,7 @@ const routes = [
         meta: {layout : 'kh'},
         props: true
     },
-    {
-        path : '/khach-hang/profile',
-        component: ()=>import('../components/WebTuDo/NguoiDung/ProFile/index.vue'),
-        meta: {layout : 'kh'},
-        props: true
-    },
+   
     {
         path : '/lay-lai-mat-khau/:hash_reset',
         component: ()=>import('../components/WebTuDo/NguoiDung/ResetMatKhau/index.vue'),
