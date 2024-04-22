@@ -14,7 +14,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-5">
-                                        <h5 class="card-title">{{ v.ten_san_pham }} : {{ k + 1 }}</h5>
+                                        <h5 class="card-title">{{ v.ten_san_pham }} </h5>
 
                                     </div>
                                     <div class="col-lg-7">

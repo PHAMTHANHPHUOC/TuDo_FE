@@ -6,7 +6,7 @@
                     <h3>Danh Mục Sản Phẩm</h3>
                 </div>
                 <div class="col-lg-1">
-                    <button v-on:click="Object.assign(create_tu , v)" class="btn btn-outline-info  text-end"
+                    <button v-on:click="  Object.assign(create_tu , v)" class="btn btn-outline-info  text-end"
                         data-bs-toggle="modal" data-bs-target="#ThemTuDo">Thêm Tủ Mới</button>
 
                 </div>
@@ -29,7 +29,7 @@
                     <template v-for="(value, k) in list_tu">
                         <tbody>
                             <tr>
-                                <td class=" text-center"> Tủ Số :{{ k + 1 }}</td>
+                                <td class=" text-center">{{ value.ten_san_pham }}</td>
                                 <td class=" text-center"><img class="img-fluid " style="height: 50px; width: 50px;"
                                         v-bind:src="value.hinh_anh" alt=""></td>
                                 <td class=" text-center">{{ formatToVND(value.gia_ban) }}</td>
@@ -69,7 +69,7 @@
                     <input v-model="create_tu.hinh_anh" type="text" class="form-control " placeholder="">
                     <label for="">Giá Bán</label>
                     <input v-model="create_tu.gia_ban" type="text" class="form-control " placeholder="">
-                    <label for="">Password Chuyển Khoản</label>
+                    <label for="">Password Chuyển Khoản </label>
                     <input v-model="create_tu.pin_active" type="text" class="form-control " placeholder="">
                     <label for="">Trạng Thái</label>
                     <input v-model="create_tu.has_active" type="text" class="form-control " placeholder="">
@@ -132,7 +132,7 @@
                             <div class="ms-3">
                                 <h6 class="mb-0 text-dark">Thông Báo</h6>
                                 <div class="text-dark">
-                                    Bạn có chắc chắn muốn xóa Tủ này
+                                    Bạn có chắc chắn muốn xóa <b>{{ delete_tu.ten_san_pham }}</b> này
                                     không?
 
                                     <h5 class="text-danger ">Lưu ý: Thao Tác Này Không Thể Hoàn Tác</h5>
@@ -161,7 +161,8 @@ export default {
             list_tu: [],
             create_tu: {},
             update_tu: {},
-            delete_tu :{}
+            delete_tu :{},
+            pin_romdum:{},
             // delete_danh_muc: {},
         }
     },

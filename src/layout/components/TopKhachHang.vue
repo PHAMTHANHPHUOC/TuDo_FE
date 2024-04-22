@@ -114,8 +114,13 @@ const toaster = createToaster({ position: "top-right" });
 export default {
     data() {
         return {
+       
+
             
         }
+    },
+    mounted() {
+
     },
     methods: {
 
@@ -126,6 +131,7 @@ export default {
                     if(res.data.status) {
                         toaster.success(res.data.message);
                         this.$router.push('/khach-hang/dang-nhap')
+ 
                     } else {
                         toaster.error(res.data.message);
                     }
@@ -140,6 +146,7 @@ export default {
                     if(res.data.status) {
                         toaster.success(res.data.message);
                         this.$router.push('/khach-hang/dang-nhap')
+
                     } else {
                         toaster.error(res.data.message);
                     }

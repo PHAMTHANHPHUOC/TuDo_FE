@@ -24,9 +24,18 @@
                 <li class="nav-item">
                     <router-link to="/khach-hang/nap-tien">
                         <a class="nav-link" href="/khach-hang/nap-tien">
-                            <div class="parent-icon"><i class="fa-solid fa-money-bill"></i>
+                            <div class="parent-icon"><i class="fa-solid fa-qrcode"></i>
                             </div>
                             <div class="menu-title">Thông Tin Thanh Toán</div>
+                        </a>
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/khach-hang/hoa-don">
+                        <a class="nav-link" href="/khach-hang/hoa-don">
+                            <div class="parent-icon"><i class="fa-solid fa-money-bill"></i>
+                            </div>
+                            <div class="menu-title">Hóa Đơn Thanh Toán</div>
                         </a>
                     </router-link>
                 </li>
