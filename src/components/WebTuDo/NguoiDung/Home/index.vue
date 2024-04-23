@@ -7,7 +7,7 @@
             <div class="card-body accordion-button ">
                 <div class="row align-items-center">
                     <template v-for="(v, k) in list_tu">
-                        <div class="col-lg-2">
+                        <div class="col-lg-2 text-center" style="width: 418px;" >
                             <div class="card">
                                 <img v-bind:src="v.hinh_anh" class="img-fluid" alt="...">
                             </div>
@@ -35,30 +35,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="modal fade" id="pinactive" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mã Pin Tủ </h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <label for="">
-                        <h5> Mã Pin Hiện Tại(có thể thay đổi)</h5>
-                    </label>
-                    <input v-model="create_thanh_toan.pin_active" type="text" class="form-control">
-                    <label for="">
-                        <h5>Nhập lại Mã Pin</h5>
-                    </label>
-                    <input v-model="create_thanh_toan.pin_active" type="text" class="form-control">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" >Thoát</button>
-                    <button v-on:click="updatePinActive()" type="button" data-bs-dismiss="modal" class="btn btn-primary">Xác Nhận</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

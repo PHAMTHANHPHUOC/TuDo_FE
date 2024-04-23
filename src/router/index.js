@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router"; // cài vue-router:
 import kiemTraDaiLy from "./kiemTraDaiLy";
 // import kiemTranNhanVien from "./kiemTranNhanVien";
 import kiemTraKhachHang from "./kiemTraKhachHang";
-// import KiemTrAdmin from "./kiemTraAdmin";
+import kiemTraAdmin from "./kiemTraAdmin";
 const routes = [
      
     
@@ -10,6 +10,7 @@ const routes = [
         path : '/admin/danh-sach-tu',
         component: ()=>import('../components/WebTuDo/Admin/DanhSachTu/index.vue'),
         meta: {layout : 'adm'},
+        beforeEnter: kiemTraAdmin
        
     },
     {
@@ -27,6 +28,8 @@ const routes = [
         path : '/admin/danh-sach-khach-hang',
         component: ()=>import('../components/WebTuDo/Admin/DanhSachKhachHang/index.vue'),
         meta: {layout : 'adm'},
+        beforeEnter: kiemTraAdmin
+
     },
 
 
@@ -76,9 +79,9 @@ const routes = [
 
     },
     {
-        path : '/khach-hang/kich-hoat/:id_can_kich_hoat',
+        path : '/kich-hoat-tai-khoan/:id_can_kich_hoat',
         component: ()=>import('../components/WebTuDo/NguoiDung/KichHoat/index.vue'),
-        meta: {layout : 'kh'},
+        meta : {layout : 'kh'},
         props: true
     },
    

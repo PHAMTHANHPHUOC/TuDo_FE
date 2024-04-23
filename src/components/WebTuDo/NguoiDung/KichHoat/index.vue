@@ -1,44 +1,31 @@
-<template >
-  hehe
+<template>
+    
 </template>
 <script>
-import baseRequest from '../../../../core/baseRequest';
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
-
+import baseRequest from '../../../../core/baseRequest';
 export default {
-    props : ['id_can_kich_hoat'],   
-    data() {
-        return {
-            kich_hoat:'',
-        }
-    },
+    props: ['id_can_kich_hoat'],
     mounted() {
-        this.kich_hoat=this.$route.params.id_can_kich_hoat;
-        this.KichHoat();
+        this.kichHoatTaiKhoan();
     },
     methods: {
-        KichHoat(){
-            let payload = {
-                'id_can_kich_hoat' : this.kich_hoat
-            }
+        kichHoatTaiKhoan() {
             baseRequest
-            .post('admin/khach-hang/kich-hoat-tai-khoan', payload)
-            .then((res) => {
-                if(res.data.status) {
+                .get('kich-hoat-tai-khoan/'+ this.$route.params.id_can_kich_hoat)
+                .then((res) => {
+                    if(res.data.status) {
                         toaster.success(res.data.message);
-                        this.$router.push('/khach-hang/dang-nhap');
                     } else {
                         toaster.error(res.data.message);
                     }
-            })
+                })
         }
-
-        
     },
 }
 </script>
-<style >
+<style>
     
 </style>

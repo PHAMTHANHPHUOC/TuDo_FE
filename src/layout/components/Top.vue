@@ -98,9 +98,7 @@
                         <li><a v-on:click="dangXuat()" class="dropdown-item" href="javascript:;"><i
                                     class='bx bx-log-out-circle'></i><span>Logout</span></a>
                         </li>
-                        <li><a  v-on:click="dangXuatALL()" class="dropdown-item" href="javascript:;"><i
-                                    class='bx bx-log-out-circle'></i><span>LogoutAll</span></a>
-                        </li>
+                        
                     </ul>
                 </div>
             </nav>
@@ -115,18 +113,24 @@ const toaster = createToaster({ position: "top-right" });
 export default {
     data() {
         return {
+       
+
             
         }
+    },
+    mounted() {
+
     },
     methods: {
 
         dangXuat(){
-            Axios
-                .get('http://127.0.0.1:8000/api/khach-hang/dang-xuat')
+            baseRequest
+                .get('admin/dang-xuat')
                 .then((res) => {
                     if(res.data.status) {
                         toaster.success(res.data.message);
-                        this.$router.push('/khach-hang/dang-nhap')
+                        this.$router.push('/admin/dang-nhap')
+ 
                     } else {
                         toaster.error(res.data.message);
                     }
@@ -134,20 +138,7 @@ export default {
                 })
 
         },
-        dangXuatALL(){
-            Axios
-                .get('http://127.0.0.1:8000/api/khach-hang/dang-xuat-all')
-                .then((res) => {
-                    if(res.data.status) {
-                        toaster.success(res.data.message);
-                        this.$router.push('/khach-hang/dang-nhap')
-                    } else {
-                        toaster.error(res.data.message);
-                    }
-                    
-                })
 
-        },
     },
 }
 </script>

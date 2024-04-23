@@ -142,7 +142,7 @@
 
         </div>
     </div>
-    <div class="modal fade" id="exampleExtraLargeModal" tabindex="-1" aria-hidden="true" style="display: none;">
+ <div class="modal fade" id="exampleExtraLargeModal" tabindex="-1" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -211,7 +211,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
-                    <button v-on:click="updatePinActive()" type="button" class="btn btn-primary">Xác Nhận</button>
+                    <button  type="button" class="btn btn-primary">Xác Nhận</button>
                 </div>
             </div>
         </div>
@@ -232,9 +232,6 @@ export default {
             edit_khach_hang: {},
             new_password: "",
             list_pin: [],
-            update_pin:{},
-            
-
         }
     },
     mounted() {
@@ -263,12 +260,8 @@ export default {
                 })
         },
         loadDataCk() {
-            axios
-                .get('http://127.0.0.1:8000/api/thong-tin-ck/data', {
-                    headers: {
-                        Authorization: 'Bearer ' + window.localStorage.getItem('chia_khoa_16')
-                    }
-                })
+            baseRequest
+                .get('thong-tin-ck/data')
                 .then((res) => {
 
                     this.Thong_Tin_ck = res.data.data;
@@ -312,18 +305,18 @@ export default {
                     }
                 })
         },
-        updatePinActive() {
-            baseRequest
-                .post('tu-do/doi-ma-pin', this.list_pin)
-                .then((res) => {
-                    if (res.data.status) {
-                        toaster.success(res.data.message);
+        // updatePinActive() {
+        //     baseRequest
+        //         .post('tu-do/doi-ma-pin', this.list_pin)
+        //         .then((res) => {
+        //             if (res.data.status) {
+        //                 toaster.success(res.data.message);
                       
-                    } else {
-                        toaster.error(res.data.message);
-                    }
-                })
-        },
+        //             } else {
+        //                 toaster.error(res.data.message);
+        //             }
+        //         })
+        // },
        
     },
 
