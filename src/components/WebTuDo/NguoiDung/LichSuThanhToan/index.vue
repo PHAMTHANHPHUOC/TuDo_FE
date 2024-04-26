@@ -37,7 +37,7 @@
 
 </template>
 <script>
-import baseRequest from '../../../../core/baseRequest';
+import baseRequestUser from '../../../../core/baseRequestUser';
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
@@ -54,7 +54,7 @@ export default {
    },
    methods: {
       getDataHoaDon() {
-            baseRequest
+            baseRequestUser
                 .get('khach-hang/hoa-don-thanh-toan')
                 .then((res) => {
                     this.list_hoa_don = res.data.data;

@@ -27,7 +27,7 @@
 <script>
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
-import baseRequest from '../../../../core/baseRequest';
+import baseRequestUser from '../../../../core/baseRequestUser';
 const toaster = createToaster({ position: "top-right" });
 export default {
 	data() {
@@ -37,7 +37,7 @@ export default {
 	},
 	methods: {
 		actionQuenMatKhau() {
-            baseRequest
+            baseRequestUser
                 .post('khach-hang/quen-mat-khau', this.quen_mat_khau)
                 .then((res) => {
                     if(res.data.status) {

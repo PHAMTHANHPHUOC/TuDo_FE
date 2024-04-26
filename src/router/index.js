@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router"; // cài vue-router:
 import kiemTraDaiLy from "./kiemTraDaiLy";
 // import kiemTranNhanVien from "./kiemTranNhanVien";
 import kiemTraKhachHang from "./kiemTraKhachHang";
-
 import KiemTraAdmin from "./KiemTraAdmin";
 
 const routes = [

@@ -73,7 +73,7 @@
 
 
 <script>
-import baseRequest from '../../../../core/baseRequest';
+import baseRequestUser from '../../../../core/baseRequestUser';
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
@@ -107,7 +107,7 @@ export default {
             return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
         },
         getProfile() {
-            baseRequest
+            baseRequestUser
                 .get('khach-hang/thong-tin')
                 .then((res) => {
                     this.profile = res.data.data;
@@ -116,7 +116,7 @@ export default {
         },
 
         getDataTu() {
-            baseRequest
+            baseRequestUser
                 .get('tu-do/data')
                 .then((res) => {
                     this.list_tu = res.data.data;
@@ -125,7 +125,7 @@ export default {
 
 
         thanhToan() {
-            baseRequest
+            baseRequestUser
                 .post('tu-do/thanh-toan', this.create_thanh_toan)
                 .then((res) => {
                     if (res.data.status) {
@@ -138,7 +138,7 @@ export default {
                 })
         },
         updatePinActive() {
-            baseRequest
+            baseRequestUser
                 .post('khach-hang/update-ma-pin', this.create_thanh_toan)
                 .then((res) => {
                     if (res.data.status) {

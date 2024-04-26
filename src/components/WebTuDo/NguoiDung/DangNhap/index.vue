@@ -55,6 +55,7 @@
 <script>
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
+import baseRequestUser from '../../../../core/baseRequestUser';
 import baseRequest from '../../../../core/baseRequest';
 const toaster = createToaster({ position: "top-right" });
 export default {
@@ -68,13 +69,13 @@ export default {
     },
     methods: {
         actionDangNhap() {
-            baseRequest
+            baseRequestUser
                 .post('khach-hang/login', this.khach_hang)
                 .then((res) => {
                     if (res.data.status == 1) {
                         console.log(res.data.chia_khoa);
                         toaster.success(res.data.message);
-                        localStorage.setItem('chia_khoa_16', res.data.chia_khoa);
+                        localStorage.setItem('chia_khoa_user', res.data.chia_khoa);
                         this.khach_hang = {};
                         this.$router.push('/');
                     } else if (res.data.status == 2) {

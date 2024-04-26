@@ -5,7 +5,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
-import baseRequest from '../../../../core/baseRequest';
+import baseRequestUser from '../../../../core/baseRequestUser';
 export default {
     props: ['id_can_kich_hoat'],
     mounted() {
@@ -13,7 +13,7 @@ export default {
     },
     methods: {
         kichHoatTaiKhoan() {
-            baseRequest
+            baseRequestUser
                 .get('kich-hoat-tai-khoan/'+ this.$route.params.id_can_kich_hoat)
                 .then((res) => {
                     if(res.data.status) {

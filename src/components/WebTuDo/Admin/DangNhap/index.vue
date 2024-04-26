@@ -10,7 +10,7 @@
                         <div class="text-center">
                             <h3 class="">Đăng Nhập</h3>
                             <p>Bạn chưa có tài khoản?
-                                <router-link to="/khach-hang/dang-ky">
+                                <router-link to="/admin/dang-ky">
                                     <a href="/admin/dang-ky">Đăng Ký</a>
                                 </router-link>
                                 
@@ -69,7 +69,7 @@ export default {
                     if (res.data.status == 1) {
                         console.log(res.data.chia_khoa);
                         toaster.success(res.data.message);
-                        localStorage.setItem('chia_khoa_16', res.data.chia_khoa);
+                        localStorage.setItem('chia_khoa', res.data.chia_khoa);
                         this.khach_hang = {};
                         this.$router.push('/admin/danh-sach-tu');
                     } else if (res.data.status == 2) {

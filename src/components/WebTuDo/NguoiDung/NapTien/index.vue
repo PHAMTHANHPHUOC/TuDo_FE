@@ -219,7 +219,7 @@
 </template>
 <script>
 
-import baseRequest from '../../../../core/baseRequest';
+import baseRequestUser from '../../../../core/baseRequestUser';
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
@@ -246,21 +246,21 @@ export default {
             return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
         },
         loadDataKhachHang() {
-            baseRequest
+            baseRequestUser
                 .get('khach-hang/thong-tin')
                 .then((res) => {
                     this.profile = res.data.data;
                 })
         },
         loadPin() {
-            baseRequest
+            baseRequestUser
                 .get('tu-do/data-pin')
                 .then((res) => {
                     this.list_pin = res.data.data;
                 })
         },
         loadDataCk() {
-            baseRequest
+            baseRequestUser
                 .get('thong-tin-ck/data')
                 .then((res) => {
 
@@ -268,7 +268,7 @@ export default {
                 })
         },
         muaHang() {
-            baseRequest
+            baseRequestUser
                 .post('khach-hang/nap-tien-tk')
                 .then((res) => {
                     if (res.data.status) {
@@ -282,7 +282,7 @@ export default {
         },
         actionDoiMatKhauTaiKhoan() {
 
-            baseRequest
+            baseRequestUser
                 .post('khach-hang/update-mat-khau', this.profile)
                 .then((res) => {
                     if (res.data.status) {
@@ -294,7 +294,7 @@ export default {
                 })
         },
         updateProfile() {
-            baseRequest
+            baseRequestUser
                 .post('khach-hang/update-thong-tin', this.profile)
                 .then((res) => {
                     if (res.data.status) {
@@ -306,7 +306,7 @@ export default {
                 })
         },
         // updatePinActive() {
-        //     baseRequest
+        //     baseRequestUser
         //         .post('tu-do/doi-ma-pin', this.list_pin)
         //         .then((res) => {
         //             if (res.data.status) {

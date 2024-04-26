@@ -39,7 +39,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
-import baseRequest from '../../../../core/baseRequest';
+import baseRequestUser from '../../../../core/baseRequestUser';
 export default {
     props: ['hash_reset'],
 	data() {
@@ -51,7 +51,7 @@ export default {
     },
     methods: {
         LayLaiMatKhau() {
-            baseRequest
+            baseRequestUser
                 .post('khach-hang/lay-lai-mat-khau/' + this.$route.params.hash_reset, this.lay_lai_mat_khau)
                 .then((res) => {
                     if(res.data.status) {
