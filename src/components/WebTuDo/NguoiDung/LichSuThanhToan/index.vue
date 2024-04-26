@@ -9,17 +9,23 @@
             <table class="table table-bordered accordion-flush accordion-collapse  ">
                <thead>
                   <tr>
-                     <th>1</th>
-                     <th>1</th>
-                     <th>1</th>
+                     <th>stt</th>
+                     <th>Thành Tiền</th>
+                     <th>Nội Dung Chuyển Khoản</th>
+                     <th>POS</th>
+                     <th>Thời Gian</th>
                   </tr>
                </thead>
                <tbody>
+                 <template v-for="(v,k) in list_hoa_don">
                   <tr>
-                     <td>1</td>
-                     <td>1</td>
-                     <td>1</td>
+                     <td>{{ k+1 }}</td>
+                     <td>{{ v.creditAmout }}</td>
+                     <td>{{ v.description }}</td>
+                     <td>{{ v.pos }}</td>
+                     <td>{{ v.created_at }}</td>
                   </tr>
+                 </template>
                </tbody>
 
             </table>
@@ -38,13 +44,23 @@ const toaster = createToaster({ position: "top-right" });
 export default {
    data() {
     return {
+      list_hoa_don: []
         
     }
    },
    mounted() {
+      this.getDataHoaDon()
     
    },
    methods: {
+      getDataHoaDon() {
+            baseRequest
+                .get('khach-hang/hoa-don-thanh-toan')
+                .then((res) => {
+                    this.list_hoa_don = res.data.data;
+                })
+        },
+
     
    },
 

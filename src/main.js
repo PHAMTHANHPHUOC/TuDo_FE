@@ -4,7 +4,6 @@ import router from './router'
 import Default from './Layout/Wrapper/MasterRocker.vue'
 import Auth from './Layout/Wrapper/auth.vue'
 import KhachHang from './Layout/Wrapper/MasterKhachHang.vue'
-
 import Admin from './layout/wrapper/MasterAdmin.vue'
 import Toaster from "@meforma/vue-toaster";
 const app = createApp(App)

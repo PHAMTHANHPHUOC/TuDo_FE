@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from "vue-router"; // cài vue-router:
 import kiemTraDaiLy from "./kiemTraDaiLy";
 // import kiemTranNhanVien from "./kiemTranNhanVien";
 import kiemTraKhachHang from "./kiemTraKhachHang";
-import kiemTraAdmin from "./kiemTraAdmin";
+
+import KiemTraAdmin from "./KiemTraAdmin";
+
 const routes = [
      
     
@@ -10,27 +12,28 @@ const routes = [
         path : '/admin/danh-sach-tu',
         component: ()=>import('../components/WebTuDo/Admin/DanhSachTu/index.vue'),
         meta: {layout : 'adm'},
-        beforeEnter: kiemTraAdmin
+        beforeEnter: KiemTraAdmin
        
+    },
+     {
+        path : '/admin/danh-sach-khach-hang',
+        component: ()=>import('../components/WebTuDo/Admin/DanhSachKhachHang/index.vue'),
+        meta: {layout : 'adm'},
+        beforeEnter: KiemTraAdmin
+
     },
     {
         path : '/admin/dang-ky',
         component: ()=>import('../components/WebTuDo/Admin/DangKy/index.vue'),
-        meta: {layout : 'auth'},
+        meta: {layout : 'adm'},
         
     },
     {
         path : '/admin/dang-nhap',
         component: ()=>import('../components/WebTuDo/Admin/DangNhap/index.vue'),
-        meta: {layout : 'auth'},
-    },
-    {
-        path : '/admin/danh-sach-khach-hang',
-        component: ()=>import('../components/WebTuDo/Admin/DanhSachKhachHang/index.vue'),
         meta: {layout : 'adm'},
-        beforeEnter: kiemTraAdmin
-
     },
+   
 
 
     
@@ -45,7 +48,7 @@ const routes = [
         path : '/khach-hang/nap-tien',
         component: ()=>import('../components/WebTuDo/NguoiDung/NapTien/index.vue'),
         meta: {layout : 'kh'},
-        beforeEnter: kiemTraKhachHang
+        beforeEnter: kiemTraKhachHang 
     },
     {
         path : '/khach-hang/hoa-don',

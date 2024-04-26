@@ -17,8 +17,9 @@ export default function (to, from, next) {
                 toaster.error('Thông báo<br>' + res.data.message);
             }
         })
-        .catch(() => {
-            next('/admin/dang-nhap');
-            toaster.error("Bạn phải đăng nhập nhé!");
-        });
+        // .catch(() => {
+        //     next('/admin/dang-nhap');
+        //     toaster.error("Bạn phải đăng nhập nhé!");
+        // });
+      
 }
