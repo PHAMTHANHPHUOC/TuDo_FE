@@ -30,7 +30,7 @@
                             </h6>
                             <span class="text-secondary">
                                 <font style="vertical-align: inherit;">
-                                    <button v-on:click="Object.assign(profile, v)" data-bs-toggle="modal"
+                                    <button v-on:click="Object.assign(edit_khach_hang, value)" data-bs-toggle="modal"
                                         data-bs-target="#doiMatKhauKhachHangModal" class="btn btn-outline-info "><i
                                             class="fa-solid fa-right-from-bracket"></i></button>
                                 </font>
@@ -176,8 +176,10 @@
                 <div class="modal-body">
                     <div class="col-md-12 mb-2">
                         <label class="form-label">Mật Khẩu Mới</label>
-                        <input v-model="profile.password" type="text" class="form-control"
-                            placeholder="Nhập vào mật khẩu mới">
+                        <input v-model="new_password" type="text" class="form-control" placeholder="Nhập vào mật khẩu mới">
+                        <label class="form-label">Nhập Lại Mật Khẩu Mới</label>
+                        <input v-model="re_password" type="text" class="form-control" placeholder="Nhập lại mật khẩu mới">
+                       
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -231,7 +233,10 @@ export default {
             Thong_Tin_ck: {},
             edit_khach_hang: {},
             new_password: "",
+            re_password: "",
             list_pin: [],
+            edit_khach_hang     : {},
+
         }
     },
     mounted() {
@@ -281,13 +286,18 @@ export default {
                 });
         },
         actionDoiMatKhauTaiKhoan() {
-
+            var payload = {
+                'id'       : this.edit_khach_hang.id,
+                'password' : this.new_password,
+                're_password' : this.re_password
+            }
             baseRequestUser
-                .post('khach-hang/update-mat-khau', this.profile)
+                .post('khach-hang/doi-mat-khau', payload)
                 .then((res) => {
-                    if (res.data.status) {
+                    if(res.data.status) {
                         toaster.success(res.data.message);
                         this.new_password = "";
+                        this.re_password = ""
                     } else {
                         toaster.error(res.data.message);
                     }

@@ -30,7 +30,7 @@
                         </a>
                     </router-link>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <router-link to="/khach-hang/hoa-don">
                         <a class="nav-link" href="/khach-hang/hoa-don">
                             <div class="parent-icon"><i class="fa-solid fa-money-bill"></i>
@@ -38,7 +38,7 @@
                             <div class="menu-title">Hóa Đơn Thanh Toán</div>
                         </a>
                     </router-link>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </div>

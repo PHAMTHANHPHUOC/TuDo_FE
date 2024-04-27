@@ -126,6 +126,9 @@
                     <div class="col-md-12 mb-2">
                         <label class="form-label">Mật Khẩu Mới</label>
                         <input v-model="new_password" type="text" class="form-control" placeholder="Nhập vào mật khẩu mới">
+                        <label class="form-label">Nhập Lại Mật Khẩu Mới</label>
+                        <input v-model="re_password" type="text" class="form-control" placeholder="Nhập vào mật khẩu mới">
+                       
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -147,7 +150,8 @@ export default {
             list                : [],
             edit_khach_hang     : {},
             delete_khach_hang   : {},
-            new_password        : ""
+            new_password        : "",
+            re_password        : "",
         }
     },
     mounted() {
@@ -221,14 +225,17 @@ export default {
         actionDoiMatKhauTaiKhoan() {
             var payload = {
                 'id'       : this.edit_khach_hang.id,
-                'password' : this.new_password
+                'password' : this.new_password,
+                're_password' : this.re_password
+
             }
             baseRequest
-                .post('admin/khach-hang/doi-mat-khau', payload)
+                .post('admin/doi-mat-khau', payload)
                 .then((res) => {
                     if(res.data.status) {
                         toaster.success(res.data.message);
                         this.new_password = "";
+                        this.re_password = "";
                     } else {
                         toaster.error(res.data.message);
                     }

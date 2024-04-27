@@ -49,12 +49,12 @@ const routes = [
         meta: {layout : 'kh'},
         beforeEnter: kiemTraKhachHang 
     },
-    {
-        path : '/khach-hang/hoa-don',
-        component: ()=>import('../components/WebTuDo/NguoiDung/LichSuThanhToan/index.vue'),
-        meta: {layout : 'kh'},
-        beforeEnter: kiemTraKhachHang
-    },
+    // {
+    //     path : '/khach-hang/hoa-don',
+    //     component: ()=>import('../components/WebTuDo/NguoiDung/LichSuThanhToan/index.vue'),
+    //     meta: {layout : 'kh'},
+    //     beforeEnter: kiemTraKhachHang
+    // },
     
     {
         path : '/khach-hang/dang-ky',
