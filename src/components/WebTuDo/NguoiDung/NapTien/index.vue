@@ -13,7 +13,7 @@
                                 </font>
 
                             </h4>
-                            <button v-on:click="muaHang(), Object.assign(Thong_Tin_ck)" class="btn btn-outline-info "
+                            <button v-on:click="muaHang(), Object.assign(Thong_Tin_ck )" class="btn btn-outline-info "
                                 data-bs-toggle="modal" data-bs-target="#exampleExtraLargeModal">Nạp Tiền Vào Ví Điện
                                 Tử</button>
 
@@ -46,7 +46,7 @@
                             <span class="text-secondary">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">
-                                        <button v-on:click="Object.assign(list_pin , v )" data-bs-toggle="modal"
+                                        <button v-on:click="Object.assign(list_pin,v )" data-bs-toggle="modal"
                                             data-bs-target="#danhsachpin" class="btn btn-outline-info "><i
                                                 class="fa-solid fa-right-from-bracket"></i></button>
                                     </font>
@@ -152,8 +152,6 @@
                 <div class="modal-body">
                     <div class="mt-2 text-center ">
                         <img v-bind:src="Thong_Tin_ck.link_qr_code" alt="">
-                        <h5> {{ Thong_Tin_ck.ten_nguoi_nhan }}</h5>
-                        <h5>{{ Thong_Tin_ck.so_dien_thoai_nguoi_nhan }}</h5>
                         <h3 class="text-danger ">*Chú Ý: Chuyển đúng cú pháp, sai nội dung bị chuyển qua ID khác Chúng
                             Tôi không chịu trách nhiệm</h3>
                     </div>
@@ -176,9 +174,9 @@
                 <div class="modal-body">
                     <div class="col-md-12 mb-2">
                         <label class="form-label">Mật Khẩu Mới</label>
-                        <input v-model="new_password" type="text" class="form-control" placeholder="Nhập vào mật khẩu mới">
+                        <input v-model="new_password" type="password" class="form-control" placeholder="Nhập vào mật khẩu mới">
                         <label class="form-label">Nhập Lại Mật Khẩu Mới</label>
-                        <input v-model="re_password" type="text" class="form-control" placeholder="Nhập lại mật khẩu mới">
+                        <input v-model="re_password" type="password" class="form-control" placeholder="Nhập lại mật khẩu mới">
                        
                     </div>
                 </div>
@@ -213,7 +211,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
-                    <button  type="button" class="btn btn-primary">Xác Nhận</button>
+                    <button type="button" class="btn btn-primary">Xác Nhận</button>
                 </div>
             </div>
         </div>
@@ -236,14 +234,12 @@ export default {
             re_password: "",
             list_pin: [],
             edit_khach_hang     : {},
-
         }
     },
     mounted() {
         this.loadDataKhachHang();
         this.loadDataCk();
         this.loadPin();
-
     },
     methods: {
         formatToVND(number) {
@@ -264,6 +260,7 @@ export default {
                     this.list_pin = res.data.data;
                 })
         },
+       
         loadDataCk() {
             baseRequestUser
                 .get('thong-tin-ck/data')
@@ -314,20 +311,7 @@ export default {
                         toaster.error(res.data.message);
                     }
                 })
-        },
-        // updatePinActive() {
-        //     baseRequestUser
-        //         .post('tu-do/doi-ma-pin', this.list_pin)
-        //         .then((res) => {
-        //             if (res.data.status) {
-        //                 toaster.success(res.data.message);
-                      
-        //             } else {
-        //                 toaster.error(res.data.message);
-        //             }
-        //         })
-        // },
-       
+        }, 
     },
 
 }

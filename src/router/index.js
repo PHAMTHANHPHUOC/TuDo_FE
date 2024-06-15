@@ -32,11 +32,6 @@ const routes = [
         component: ()=>import('../components/WebTuDo/Admin/DangNhap/index.vue'),
         meta: {layout : 'adm'},
     },
-   
-
-
-    
-    
     {
         path : '/',
         component: ()=>import('../components/WebTuDo/NguoiDung/Home/index.vue'),

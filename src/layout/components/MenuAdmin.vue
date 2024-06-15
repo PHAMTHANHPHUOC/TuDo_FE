@@ -27,7 +27,7 @@
                         <a class="nav-link" href="/admin/danh-sach-tu">
                             <div class="parent-icon"><i class="fa-solid fa-box"></i>
                             </div>
-                            <div class="menu-title">Danh Sach Tủ</div>
+                            <div class="menu-title">Danh Sách Tủ</div>
                         </a>
                     </router-link>
                 </li>
@@ -36,7 +36,7 @@
                         <a class="nav-link" href="/admin/danh-sach-khach-hang">
                             <div class="parent-icon"><i class="fa-solid fa-user"></i>
                             </div>
-                            <div class="menu-title">Danh Sach Khách Hàng</div>
+                            <div class="menu-title">Danh Sách Khách Hàng</div>
                         </a>
                     </router-link>
                 </li>

@@ -110,6 +110,7 @@
 import { createToaster } from "@meforma/vue-toaster";
 import baseRequest from '../../core/baseRequest';
 import { Axios } from "axios";
+import baseRequestUser from "../../core/baseRequestUser";
 const toaster = createToaster({ position: "top-right" });
 export default {
     data() {
@@ -125,7 +126,7 @@ export default {
     methods: {
 
         dangXuat(){
-            baseRequest
+            baseRequestUser
                 .get('khach-hang/dang-xuat')
                 .then((res) => {
                     if(res.data.status) {
@@ -140,7 +141,7 @@ export default {
 
         },
         dangXuatALL(){
-            baseRequest
+            baseRequestUser
                 .get('khach-hang/dang-xuat-all')
                 .then((res) => {
                     if(res.data.status) {
