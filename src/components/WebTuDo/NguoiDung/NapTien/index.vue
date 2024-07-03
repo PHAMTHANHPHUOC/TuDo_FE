@@ -13,7 +13,7 @@
                                 </font>
 
                             </h4>
-                            <button v-on:click="muaHang(), Object.assign(Thong_Tin_ck )" class="btn btn-outline-info "
+                            <button v-on:click="muaHang(), Object.assign(Thong_Tin_ck)" class="btn btn-outline-info "
                                 data-bs-toggle="modal" data-bs-target="#exampleExtraLargeModal">Nạp Tiền Vào Ví Điện
                                 Tử</button>
 
@@ -46,7 +46,7 @@
                             <span class="text-secondary">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">
-                                        <button v-on:click="Object.assign(list_pin,v )" data-bs-toggle="modal"
+                                        <button v-on:click="Object.assign(list_pin, v)" data-bs-toggle="modal"
                                             data-bs-target="#danhsachpin" class="btn btn-outline-info "><i
                                                 class="fa-solid fa-right-from-bracket"></i></button>
                                     </font>
@@ -142,7 +142,7 @@
 
         </div>
     </div>
- <div class="modal fade" id="exampleExtraLargeModal" tabindex="-1" aria-hidden="true" style="display: none;">
+    <div class="modal fade" id="exampleExtraLargeModal" tabindex="-1" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -174,10 +174,12 @@
                 <div class="modal-body">
                     <div class="col-md-12 mb-2">
                         <label class="form-label">Mật Khẩu Mới</label>
-                        <input v-model="new_password" type="password" class="form-control" placeholder="Nhập vào mật khẩu mới">
+                        <input v-model="new_password" type="password" class="form-control"
+                            placeholder="Nhập vào mật khẩu mới">
                         <label class="form-label">Nhập Lại Mật Khẩu Mới</label>
-                        <input v-model="re_password" type="password" class="form-control" placeholder="Nhập lại mật khẩu mới">
-                       
+                        <input v-model="re_password" type="password" class="form-control"
+                            placeholder="Nhập lại mật khẩu mới">
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -203,7 +205,8 @@
                                     <h5>{{ v.ten_san_pham }}</h5>
                                 </label>
                             </div>
-                            <div class="col"><input v-model="v.pin_active" class="form-control" type="text"></div>
+                            <div style="margin-top: 4px; " class="col">{{ v.pin_active
+                                }}</div>
                         </div>
 
 
@@ -211,7 +214,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
-                    <button type="button" class="btn btn-primary">Xác Nhận</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Xác Nhận</button>
                 </div>
             </div>
         </div>
@@ -233,7 +236,7 @@ export default {
             new_password: "",
             re_password: "",
             list_pin: [],
-            edit_khach_hang     : {},
+            edit_khach_hang: {},
         }
     },
     mounted() {
@@ -260,7 +263,7 @@ export default {
                     this.list_pin = res.data.data;
                 })
         },
-       
+
         loadDataCk() {
             baseRequestUser
                 .get('thong-tin-ck/data')
@@ -284,14 +287,14 @@ export default {
         },
         actionDoiMatKhauTaiKhoan() {
             var payload = {
-                'id'       : this.edit_khach_hang.id,
-                'password' : this.new_password,
-                're_password' : this.re_password
+                'id': this.edit_khach_hang.id,
+                'password': this.new_password,
+                're_password': this.re_password
             }
             baseRequestUser
                 .post('khach-hang/doi-mat-khau', payload)
                 .then((res) => {
-                    if(res.data.status) {
+                    if (res.data.status) {
                         toaster.success(res.data.message);
                         this.new_password = "";
                         this.re_password = ""
@@ -306,12 +309,12 @@ export default {
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success(res.data.message);
-                      
+
                     } else {
                         toaster.error(res.data.message);
                     }
                 })
-        }, 
+        },
     },
 
 }
